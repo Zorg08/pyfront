@@ -26,6 +26,7 @@ def home():
 def cunt():
 	return render_template('countries.html', countries = extract)
 
+
 @app.route('/population/', methods=['GET'])
 def cuntry(id):
 	return render_template('population.html', cunt = p)
