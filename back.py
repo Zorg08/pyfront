@@ -65,6 +65,20 @@ for country in country_ready_for_fetch:
         country_population
 
 
+newdate = '/2018-01-01'
+
+country_popu = []
+
+for country in country_ready_for_fetch:
+    url = "http://api.population.io:80/1.0/population/"
+
+    with urllib.request.urlopen(url + country + newdate) as url:
+        data = json.loads(url.read().decode())
+        country_popu.append(country)
+        country_popu.append(data)
+        country_popu
+
+
 result = {}
 
 for i in range(0, len(country_population), 2):
@@ -82,7 +96,7 @@ for i in l:
      
 
 df = pd.DataFrame(l)
-df.columns = ['Country','CountryCode','Population']
+k = df.columns = ['Country','CountryCode','Population']
 p = df['CountryCode'] = df['CountryCode'].str.upper()
 
 data = dict(type = 'choropleth', 
