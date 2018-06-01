@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1> Pop  </h1>
+<ul class="list-group">
+
+{% for c in cunt %}
+
+<li class="list-group-item"><a href="population/{{c}}"> {{c}}</a> </li>
+
+</ul>
+
+{% endblock%}

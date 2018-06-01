@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+
+    <title>Widget export</title>
+
+    <!-- Load RequireJS, used by the IPywidgets for dependency management -->
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js" 
+      integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" 
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Load IPywidgets bundle for embedding. -->
+    <script 
+      src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" 
+      crossorigin="anonymous">
+    </script>
+
+    <!-- The state of all the widget models on the page -->
+    <script type="application/vnd.jupyter.widget-state+json">
+      {"version_major": 2, "version_minor": 0, "state": {"95cfd9f824674ddebb0f879987cb8a01": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "3fb9b8927a1247eaa2e390d922118a0c": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {}}, "3b3a561c3bb14513b9cad7c70246c5d4": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": [], "layout": "IPY_MODEL_95cfd9f824674ddebb0f879987cb8a01", "style": "IPY_MODEL_3fb9b8927a1247eaa2e390d922118a0c"}}, "925a0b80d16848ba8746c77774f2bbe2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "ec0c6684c1f84228b81a75d588d886e7": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {}}, "27dd4759a7244d5c81761ff8653ade61": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": [], "layout": "IPY_MODEL_925a0b80d16848ba8746c77774f2bbe2", "style": "IPY_MODEL_ec0c6684c1f84228b81a75d588d886e7"}}, "5ecc62bae8c846d49b3483640a613a91": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "84f6d70292824a2e97c8f983e2dd4ea1": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_d8eb4061f0ff4a5f86aa674757d294fb", "IPY_MODEL_4ca416f2b358473caf52e78c1c33ad1f"], "layout": "IPY_MODEL_5ecc62bae8c846d49b3483640a613a91"}}, "dd9bf1d9309549f3acb4e7fccf6bfc6e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "a6b0e3b2893c4b4e8cd72cf8058946ed": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {}}, "d8eb4061f0ff4a5f86aa674757d294fb": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": [], "description": "population", "layout": "IPY_MODEL_dd9bf1d9309549f3acb4e7fccf6bfc6e", "max": 30, "min": -10, "style": "IPY_MODEL_a6b0e3b2893c4b4e8cd72cf8058946ed", "value": 10}}, "4089ae7f47ee46008340f8891d31786b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "4ca416f2b358473caf52e78c1c33ad1f": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "layout": "IPY_MODEL_4089ae7f47ee46008340f8891d31786b", "outputs": []}}, "edab79edbc90451ba0d210d229bbed5a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "f4040d11653a4f7481b397342deb543b": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {}}, "dbd3cf1bf112475cb8dc15036b6e504b": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": [], "layout": "IPY_MODEL_edab79edbc90451ba0d210d229bbed5a", "max": 200, "style": "IPY_MODEL_f4040d11653a4f7481b397342deb543b", "value": 100}}, "a8b5effe3df341139bf730ecaace4c99": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.0.0", "state": {}}, "c8c57cb0f9344ad797281e22f41e1115": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {}}, "af5878e5cf6f45beb117c6c8882cda5a": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.2.0", "state": {"_dom_classes": [], "layout": "IPY_MODEL_a8b5effe3df341139bf730ecaace4c99", "style": "IPY_MODEL_c8c57cb0f9344ad797281e22f41e1115", "value": 40}}}}
+    </script>
+  </head>
+
+  <body>
+
+    <h1>Widget export</h1>
+
+    <div id="first-slider-widget">
+      <!-- This script tag will be replaced by the view's DOM tree -->
+      <script type="application/vnd.jupyter.widget-view+json">
+        {"version_major": 2, "version_minor": 0, "model_id": "dbd3cf1bf112475cb8dc15036b6e504b"}
+      </script>
+    </div>
+
+    <hrule />
+
+    <div id="second-slider-widget">
+      <!-- This script tag will be replaced by the view's DOM tree -->
+      <script type="application/vnd.jupyter.widget-view+json">
+        {"version_major": 2, "version_minor": 0, "model_id": "af5878e5cf6f45beb117c6c8882cda5a"}
+      </script>
+    </div>
+
+  </body>
+</html>

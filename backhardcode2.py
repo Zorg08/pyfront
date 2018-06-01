@@ -12,10 +12,15 @@ from IPython.display import display
 import csv
 import itertools
 import plotly.plotly as py
+
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 import plotly.graph_objs as go
 
 init_notebook_mode(connected=True)
+
+
+
+
 
 
 # EXTRACTING DATA AND CONVERTING IT TO A 1-DIMENSIONAL ARRAY
@@ -29,34 +34,24 @@ def extract():
         twoD_data = np.array(list(api_data.values()))
         all_countries = twoD_data.ravel()
         return all_countries
-
-
-# FORMATTING COUNTRIES FOR URL-CALLS LATER
-
-def fort():
-    country_code_data = pd.read_csv(
-        'https://pkgstore.datahub.io/core/country-list/data_csv/data/d7c9d7cfb42cb69f4422dec222dbbaa8/data_csv.csv')
-    df1 = country_code_data[['Name', 'Code']]
-    df2 = country_code_data[['Code']]
-    test = pd.read_csv("http://kejser.org/wp-content/uploads/2014/06/Country.csv", delimiter='|')
-    df3 = test[["CountryName", "Alpha3Code"]]
-    # print(test.head())
-    # print(df3)
-    # print(country_code_data)
-    country_and_countrycodes = df3.values
-    countrycodesTwoD = df2.values
-    countrycodes = countrycodesTwoD.ravel()
-
-    chained_country_list = set(itertools.chain.from_iterable(country_and_countrycodes)) & set(all_countries)
-    country_ready_for_fetch = []
-    for country in chained_country_list:
-        try:
-            if '/' not in country:
-                j = country.replace(" ", "%20")
-                country_ready_for_fetch.append(j)
-        except AttributeError:
-            pass
-        return chained_country_list
+        country_code_data = pd.read_csv('https://pkgstore.datahub.io/core/country-list/data_csv/data/d7c9d7cfb42cb69f4422dec222dbbaa8/data_csv.csv')
+        df1 = country_code_data[['Name', 'Code']]
+        df2 = country_code_data[['Code']]
+        test = pd.read_csv("http://kejser.org/wp-content/uploads/2014/06/Country.csv", delimiter='|')
+        df3 = test[["CountryName", "Alpha3Code"]]
+        country_and_countrycodes = df3.values
+        countrycodesTwoD = df2.values
+        countrycodes = countrycodesTwoD.ravel()
+        chained_country_list = set(itertools.chain.from_iterable(country_and_countrycodes)) & set(all_countries)
+        country_ready_for_fetch = []
+        for country in chained_country_list:
+            try:
+                if '/' not in country:
+                    j = country.replace(" ", "%20")
+                    country_ready_for_fetch.append(j)
+            except AttributeError:
+                pass
+            return chained_country_list
 
 
 # EXTRACTING THE POPULATION DATA

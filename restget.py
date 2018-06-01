@@ -5,36 +5,47 @@ from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
 from IPython.display import display
 import os
-import backhardcode as hc
+from backhardcode2 import extract
+from back import p
+from ipywidgets import IntSlider
 
-dat = hc.exit
-
+extract = extract()
+p = p
 
 app = Flask(__name__)
 
+#countries = Country()
 
-def f(population):
-	return population
 
-interact(f, population=10);
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-@app.route('/', methods=['POST'])
-def newtest():
-	return f()
 
-@app.route('/', methods=['GET'])
-def test():
+@app.route('/countries', methods=['GET'])
+def cunt():
+	return render_template('countries.html', countries = extract)
 
-	return jsonify({'message': dat})
+@app.route('/population/', methods=['GET'])
+def cuntry(id):
+	return render_template('population.html', cunt = p)
 
-@app.route('/lang', methods=['GET'])
-def returnALL():
-	return jsonify({'languages': languages})
 
-@app.route('/lang/<string:name>', methods=['GET'])
-def returnOne():
-	langs = [language for language in languages if language['name'] == name]
-	return jsonify({'language' : langs[0]})
+
+@app.route('/population/<string:id>/', methods=['GET'])
+def dis(id):
+	return render_template('countries.html', id=id)
+
+
+# @app.route('/lang', methods=['GET'])
+# def returnALL():
+#	return jsonify({'languages': languages})
+
+# @app.route('/lang/<string:name>', methods=['GET'])
+# def returnOne():
+#	langs = [language for language in languages if language['name'] == name]
+#	return jsonify({'language' : langs[0]})
+
 
 if __name__ == '__main__':
-	app.run(debug=True, port=8080)
+    app.run(debug=True, port=8080)

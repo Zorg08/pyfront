@@ -3,12 +3,13 @@ import json
 import numpy as np
 #import pycountry as pc
 import pandas as pd
+import ipywidgets as widgets
+from IPython.display import display
 import csv
 import itertools
 import plotly.plotly as py
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 import plotly.graph_objs as go
-
 
 init_notebook_mode(connected=True)
 
@@ -19,7 +20,7 @@ with urllib.request.urlopen("http://api.population.io:80/1.0/countries") as url:
     api_data = json.loads(url.read().decode())
     twoD_data = np.array(list(api_data.values())) #turns the dictionary into a 2D array
     all_countries = twoD_data.ravel()
-    
+    country_ready_for_fetch = []
     
 #FORMATTING COUNTRIES FOR URL-CALLS LATER
     
@@ -36,7 +37,7 @@ country_and_countrycodes = df3.values
 countrycodesTwoD = df2.values
 countrycodes = countrycodesTwoD.ravel()
 
-country_ready_for_fetch = []
+
 
 chained_country_list = set(itertools.chain.from_iterable(country_and_countrycodes)) & set(all_countries)
 
@@ -51,7 +52,8 @@ for country in chained_country_list:
     
 #EXTRACTING THE POPULATION DATA
 
-date = '/2013-01-01'
+year = "/2013"
+date = year + '-01-01'
 
 country_population = []
 
@@ -62,7 +64,6 @@ for country in country_ready_for_fetch:
         data = json.loads(url.read().decode())
         country_population.append(country)
         country_population.append(data)
-        country_population
 
 
 result = {}
@@ -83,31 +84,46 @@ for i in l:
 
 df = pd.DataFrame(l)
 df.columns = ['Country','CountryCode','Population']
-p = df['CountryCode'] = df['CountryCode'].str.upper()
+df['CountryCode'] = df['CountryCode'].str.upper()
+
+
 
 data = dict(type = 'choropleth', 
            locations = df['CountryCode'],
            z = df['Population'],
            text = df['Country'],
-           colorscale='Portland',
+           colorscale ='Portland',
            colorbar = dict(title = 'Population in thousands'))
 
 layout = dict(title = '2013 global Population', 
              geo = dict(showframe = False,
-                        showlakes = True, 
+                       showlakes = True, 
                        showrivers = True,
                        showcoastlines = True,
                        coastlinewidth = 6,
                        coastlinecolor = 'rgb(127,255,0)',
                        rivercolor = 'rgb(85,173,240)', 
                        lakecolor = 'rgb(85,173,240)',
-                        
-                        projection = {'type': 'stereographic'}))
+                       projection = {'type': 'stereographic'}))
+                       #projection = {'type': 'Mercator'}))
 
 choromap3 = go.Figure(data = [data], layout = layout)
 
-df
+
+
+plot(choromap3)
+
+
+
+
+
 
 exit = plot(choromap3)
-print(exit)
+
+
+
+
+
+
+
 
