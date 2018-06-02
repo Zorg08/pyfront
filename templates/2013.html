@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1> World population 2013 </h1>
+<ul class="list-group">
+
+{% for country in countries %}
+
+
+
+<li class="list-group-item"><a href="countries/{{country}}"> {{country}}</a> </li>
+
+
+
+{% endfor %}
+</ul>
+{% endblock %}

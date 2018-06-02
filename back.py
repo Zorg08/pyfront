@@ -79,6 +79,8 @@ for country in country_ready_for_fetch:
         country_popu
 
 
+
+
 result = {}
 
 for i in range(0, len(country_population), 2):

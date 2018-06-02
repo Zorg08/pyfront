@@ -8,6 +8,7 @@ import os
 from backhardcode2 import extract
 from back import country_population
 from back import country_popu
+
 from ipywidgets import IntSlider
 
 extract = extract()
@@ -29,16 +30,17 @@ def home():
 def listing():
 	return render_template('countries.html', countries = extract)
 
+
 #population 2013
 @app.route('/countries2013', methods=['GET'])
 def cunta():
-	return render_template('countries.html', countries = country_population)
+	return render_template('2013.html', countries = country_population)
 
 #population 2018
 @app.route('/countries2018', methods=['GET'])
 def cunt():
-	return jsonify({'countries' : country_popu})
-	#return render_template('countries.html', countries = country_popu)	
+	#return jsonify({'countries' : country_popu})
+	return render_template('2018.html', countries = country_popu)	
 
 
 
