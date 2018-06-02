@@ -6,7 +6,7 @@ import ipywidgets as widgets
 from IPython.display import display
 import os
 from backhardcode2 import extract
-from back import country_population
+from back import country_population, countryss
 from back import country_popu
 
 from ipywidgets import IntSlider
@@ -14,6 +14,7 @@ from ipywidgets import IntSlider
 extract = extract()
 country_population = country_population
 country_popu = country_popu
+countryss = countryss
 
 
 app = Flask(__name__)
@@ -35,6 +36,11 @@ def listing():
 @app.route('/countries2013', methods=['GET'])
 def cunta():
 	return render_template('2013.html', countries = country_population)
+
+#population 2015
+@app.route('/countries2015', methods=['GET'])
+def cunti():
+	return render_template('2015.html', countries = countryss)
 
 #population 2018
 @app.route('/countries2018', methods=['GET'])

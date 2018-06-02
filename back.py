@@ -79,6 +79,18 @@ for country in country_ready_for_fetch:
         country_popu
 
 
+news = '/2018-01-01'
+
+countryss = []
+
+for country in country_ready_for_fetch:
+    url = "http://api.population.io:80/1.0/population/"
+
+    with urllib.request.urlopen(url + country + news) as url:
+        data = json.loads(url.read().decode())
+        countryss.append(country)
+        countryss.append(data)
+        countryss
 
 
 result = {}
